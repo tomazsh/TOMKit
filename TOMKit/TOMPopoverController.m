@@ -1,6 +1,6 @@
 //
-//  NNNPopoverController.m
-//  NNNKit
+//  TOMPopoverController.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,15 +23,15 @@
 //  THE SOFTWARE.
 //
 
-#import "NNNPopoverController.h"
+#import "TOMPopoverController.h"
 
-@interface NNNPopoverController () <UIPopoverControllerDelegate>
+@interface TOMPopoverController () <UIPopoverControllerDelegate>
 
 - (void)_initializePopoverController;
 
 @end
 
-@implementation NNNPopoverController
+@implementation TOMPopoverController
 
 #pragma mark -
 #pragma mark Initialization
@@ -86,7 +86,7 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     if (_didDismissBlock) {
-        _didDismissBlock((NNNPopoverController *)popoverController);
+        _didDismissBlock((TOMPopoverController *)popoverController);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(popoverControllerDidDismissPopover:)]) {
@@ -97,7 +97,7 @@
 - (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
 {
     if (_shouldDismissBlock) {
-        return _shouldDismissBlock((NNNPopoverController *)popoverController);
+        return _shouldDismissBlock((TOMPopoverController *)popoverController);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(popoverControllerShouldDismissPopover:)]) {

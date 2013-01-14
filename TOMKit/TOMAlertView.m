@@ -1,6 +1,6 @@
 //
-//  NNNAlertView.m
-//  NNNKit
+//  TOMAlertView.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,15 +23,15 @@
 //  THE SOFTWARE.
 //
 
-#import "NNNAlertView.h"
+#import "TOMAlertView.h"
 
-@interface NNNAlertView () <UIAlertViewDelegate>
+@interface TOMAlertView () <UIAlertViewDelegate>
 
 - (void)_initializeAlertView;
 
 @end
 
-@implementation NNNAlertView
+@implementation TOMAlertView
 
 #pragma mark -
 #pragma mark Initialization
@@ -55,7 +55,7 @@
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message
-  cancelButtonTitle:(NSString *)cancelButtonTitle cancelBlock:(NNNAlertViewButtonBlock)cancelBlock
+  cancelButtonTitle:(NSString *)cancelButtonTitle cancelBlock:(TOMAlertViewButtonBlock)cancelBlock
 {
     self = [super initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
     if (self) {
@@ -78,7 +78,7 @@
 #pragma mark -
 #pragma mark Instance Methods
 
-- (NSInteger)addButtonWithTitle:(NSString *)title block:(NNNAlertViewButtonBlock)block
+- (NSInteger)addButtonWithTitle:(NSString *)title block:(TOMAlertViewButtonBlock)block
 {
     NSInteger idx = [self addButtonWithTitle:title];
     if (block) {
@@ -87,7 +87,7 @@
     return idx;
 }
 
-- (NSInteger)setCancelButtonWithTitle:(NSString *)title block:(NNNAlertViewButtonBlock)block
+- (NSInteger)setCancelButtonWithTitle:(NSString *)title block:(TOMAlertViewButtonBlock)block
 {
     [_buttonBlocks removeObjectForKey:[NSNumber numberWithInteger:self.cancelButtonIndex]];
     NSInteger idx = [self addButtonWithTitle:title block:block];
@@ -119,9 +119,9 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NNNAlertViewButtonBlock block = [_buttonBlocks objectForKey:[NSNumber numberWithInteger:buttonIndex]];
+    TOMAlertViewButtonBlock block = [_buttonBlocks objectForKey:[NSNumber numberWithInteger:buttonIndex]];
     if (block) {
-        block((NNNAlertView *)alertView, buttonIndex);
+        block((TOMAlertView *)alertView, buttonIndex);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
@@ -132,7 +132,7 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (_didDismissBlock) {
-        _didDismissBlock((NNNAlertView *)alertView, buttonIndex);
+        _didDismissBlock((TOMAlertView *)alertView, buttonIndex);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(alertView:didDismissWithButtonIndex:)]) {
@@ -143,7 +143,7 @@
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (_willDismissBlock) {
-        _willDismissBlock((NNNAlertView *)alertView, buttonIndex);
+        _willDismissBlock((TOMAlertView *)alertView, buttonIndex);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(alertView:willDismissWithButtonIndex:)]) {
@@ -154,7 +154,7 @@
 - (void)alertViewCancel:(UIAlertView *)alertView
 {
     if (_cancelBlock) {
-        _cancelBlock((NNNAlertView *)alertView);
+        _cancelBlock((TOMAlertView *)alertView);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(alertViewCancel:)]) {
@@ -165,7 +165,7 @@
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
 {
     if (_shouldEnableFirstOtherButtonBlock) {
-        _shouldEnableFirstOtherButtonBlock((NNNAlertView *)alertView);
+        _shouldEnableFirstOtherButtonBlock((TOMAlertView *)alertView);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(alertViewShouldEnableFirstOtherButton:)]) {
@@ -177,7 +177,7 @@
 - (void)didPresentAlertView:(UIAlertView *)alertView
 {
     if (_didPresentBlock) {
-        _didPresentBlock((NNNAlertView *)alertView);
+        _didPresentBlock((TOMAlertView *)alertView);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(didPresentAlertView:)]) {
@@ -188,7 +188,7 @@
 - (void)willPresentAlertView:(UIAlertView *)alertView
 {
     if (_willPresentBlock) {
-        _willPresentBlock((NNNAlertView *)alertView);
+        _willPresentBlock((TOMAlertView *)alertView);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(willPresentAlertView:)]) {

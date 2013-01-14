@@ -1,6 +1,6 @@
 //
-//  NNNKitMetrics.h
-//  NNNKit
+//  UIAlertView+TOMKit.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -26,14 +26,35 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#ifndef UIViewAutoresizingFlexibleMargins
-#define UIViewAutoresizingFlexibleMargins (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin)
-#endif
+/**
+ The `UIAlertView(TOMKit)` protocol extends `UIAlertView`.
+ */
+@interface UIAlertView (TOMKit)
 
-#ifndef UIViewAutoresizingFlexibleDimensions
-#define UIViewAutoresizingFlexibleDimensions (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)
-#endif
+///------------------------
+/// @name Displaying Alerts
+///------------------------
 
+/**
+ Creates a new alert view with supplied parameters and displays it.
+ 
+ @param title The string that appears in the receiver’s title bar.
+ @param message Descriptive text that provides more details than the title.
+ @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
+ */
++ (void)showAlertWithTitle:(NSString *)title
+                   message:(NSString *)message
+         cancelButtonTitle:(NSString *)cancelButtonTitle;
 
-#define NNN_PHONE UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone
-#define NNN_PAD   UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad
+/**
+ Creates a new alert view with supplied parameters and displays it.
+ 
+ @param error Error to use for the alert view message.
+ @param title The string that appears in the receiver’s title bar.
+ @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
+ */
++ (void)showError:(NSError *)error
+        withTitle:(NSString *)title
+cancelButtonTitle:(NSString *)cancelButtonTitle;
+
+@end

@@ -1,6 +1,6 @@
 //
-//  UIColor+NNNKit.h
-//  NNNKit
+//  UIAlertView+TOMKit.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,41 +23,22 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "UIAlertView+TOMKit.h"
 
-/**
- The `UIColor(NNNKit)` protocol extends `UIColor`.
- */
-@interface UIColor (NNNKit)
+@implementation UIAlertView (TOMKit)
 
-/// -----------------------------------------------
-/// Creating a UIColor Object from Component Values
-/// -----------------------------------------------
+#pragma mark -
+#pragma mark Class Methods
 
-/**
- Creates and returns a color object using the specified opacity and RGB component integer values.
- 
- @param red The red component of the color object, specified as a value from 0 to 255.
- @param green The green component of the color object, specified as a value from 0 to 255.
- @param blue The blue component of the color object, specified as a value from 0 to 255.
++ (void)showAlertWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle
+{
+    UIAlertView *alertView = [[self alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+    [alertView show];
+}
 
- @return An `UIColor` value.
- */
-+ (UIColor *)colorWithIntRed:(NSUInteger)red
-                       green:(NSUInteger)green
-                        blue:(NSUInteger)blue
-                       alpha:(CGFloat)alpha;
-
-/// -------------
-/// System Colors
-/// -------------
-
-/**
- Returns the system color used for displaying text in table view cells labels for detail text.
- 
- @return An `UIColor` value.
- */
-+ (UIColor *)tableViewDetailLabelColor;
++ (void)showError:(NSError *)error withTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle
+{
+    [self showAlertWithTitle:title message:[error localizedDescription] cancelButtonTitle:cancelButtonTitle];
+}
 
 @end

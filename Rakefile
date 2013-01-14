@@ -2,7 +2,7 @@ version = `cat VERSION`.strip
 output = Dir.pwd + '/Documentation'
 appledoc_options = [
   "--output \"#{output}\"",
-  '--project-name NNNKit',
+  '--project-name TOMKit',
   '--project-company "Tomaz Nedeljko"',
   '--company-id com.nedeljko',
   "--project-version #{version}",
@@ -21,11 +21,11 @@ namespace :docs do
   
   desc 'Generate documentation'
   task :generate => [:'docs:clean'] do
-    `appledoc #{appledoc_options.join(' ')} NNNKit/*.h`
+    `appledoc #{appledoc_options.join(' ')} TOMKit/*.h`
   end
   
   desc 'Install documentation'
   task :install => [:'docs:clean'] do
-    `appledoc #{appledoc_options.join(' ')} --install-docset NNNKit/*.h`
+    `appledoc #{appledoc_options.join(' ')} --install-docset TOMKit/*.h`
   end
 end

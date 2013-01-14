@@ -1,6 +1,6 @@
 //
-//  UIScreen+NNNKit.m
-//  NNNKit
+//  TOMKit.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,34 +23,12 @@
 //  THE SOFTWARE.
 //
 
-#import "UIScreen+NNNKit.h"
-
-@implementation UIScreen (NNNKit)
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (UIInterfaceOrientation)deviceOrientation
-{
-    return [[UIApplication sharedApplication] statusBarOrientation];
-}
-
-+ (BOOL)isMainScreenRetina
-{
-    static BOOL IsRetina;
-    static dispatch_once_t predicate;
-	dispatch_once(&predicate, ^{
-		IsRetina = ([[[self class] mainScreen] isRetina]);
-	});
-	return IsRetina;
-}
-
-#pragma mark -
-#pragma mark Instance Methods
-
-- (BOOL)isRetina
-{
-    return [self respondsToSelector:@selector(scale)] && [self scale] == 2;
-}
-
-@end
+#import "TOMActionSheet.h"
+#import "TOMAlertView.h"
+#import "TOMKitMethods.h"
+#import "TOMKitMetrics.h"
+#import "TOMPopoverController.h"
+#import "UIAlertView+TOMKit.h"
+#import "UIColor+TOMKit.h"
+#import "UIImage+TOMKit.h"
+#import "UIScreen+TOMKit.h"

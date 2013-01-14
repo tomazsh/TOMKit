@@ -1,6 +1,6 @@
 //
-//  UIAlertView+NNNKit.h
-//  NNNKit
+//  UIScreen+TOMKit.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -27,34 +27,37 @@
 #import <UIKit/UIKit.h>
 
 /**
- The `UIAlertView(NNNKit)` protocol extends `UIAlertView`.
+ The `UIScreen(TOMKit)` protocol extends `UIScreen`.
  */
-@interface UIAlertView (NNNKit)
+@interface UIScreen (TOMKit)
 
-///------------------------
-/// @name Displaying Alerts
-///------------------------
-
-/**
- Creates a new alert view with supplied parameters and displays it.
- 
- @param title The string that appears in the receiver’s title bar.
- @param message Descriptive text that provides more details than the title.
- @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
- */
-+ (void)showAlertWithTitle:(NSString *)title
-                   message:(NSString *)message
-         cancelButtonTitle:(NSString *)cancelButtonTitle;
+/// -----------------------------
+/// @name Determining Orientation
+/// -----------------------------
 
 /**
- Creates a new alert view with supplied parameters and displays it.
+ Returns the current screen orientation.
  
- @param error Error to use for the alert view message.
- @param title The string that appears in the receiver’s title bar.
- @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
+ @return An `UIInterfaceOrientation` 
  */
-+ (void)showError:(NSError *)error
-        withTitle:(NSString *)title
-cancelButtonTitle:(NSString *)cancelButtonTitle;
++ (UIInterfaceOrientation)deviceOrientation;
+
+/// -----------------------------------
+/// @name Determining Screen Resolution
+/// -----------------------------------
+
+/**
+ Checks if the main screen is retina.
+ 
+ @return `YES` if main screen is retina; otherwise `NO`.
+ */
++ (BOOL)isMainScreenRetina;
+
+/**
+ Checks if the receiver is retina.
+ 
+ @return `YES` if main screen is retina; otherwise `NO`.
+ */
+- (BOOL)isRetina;
 
 @end

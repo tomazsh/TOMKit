@@ -1,6 +1,6 @@
 //
-//  NNNAlertView.h
-//  NNNKit
+//  TOMAlertView.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -26,36 +26,36 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class NNNAlertView;
+@class TOMAlertView;
 
 /**
  Alert view block that takes alrt view as its sole parameter.
  */
-typedef void (^NNNAlertViewBlock)(NNNAlertView *);
+typedef void (^TOMAlertViewBlock)(TOMAlertView *);
 
 /**
  Alert view block that takes alert view and button index as its parameters.
  */
-typedef void (^NNNAlertViewButtonBlock)(NNNAlertView *, NSInteger);
+typedef void (^TOMAlertViewButtonBlock)(TOMAlertView *, NSInteger);
 
 /**
  Alert view block that returns `YES` if alert view should enable first other button, `NO` otherwise, and takes alert view as its sole parameter.
  */
-typedef BOOL (^NNNAlertViewShouldEnableFirstOtherButtonBlock)(NNNAlertView *);
+typedef BOOL (^TOMAlertViewShouldEnableFirstOtherButtonBlock)(TOMAlertView *);
 
 /**
- `NNNAlertView` extends `UIAlertView` with blocks.
+ `TOMAlertView` extends `UIAlertView` with blocks.
  */
-@interface NNNAlertView : UIAlertView {
+@interface TOMAlertView : UIAlertView {
     @private
     id<UIAlertViewDelegate> _externalDelegate;
     NSMutableDictionary *_buttonBlocks;
-    NNNAlertViewBlock _willPresentBlock;
-    NNNAlertViewBlock _didPresentBlock;
-    NNNAlertViewBlock _cancelBlock;
-    NNNAlertViewShouldEnableFirstOtherButtonBlock _shouldEnableFirstOtherButtonBlock;
-    NNNAlertViewButtonBlock _willDismissBlock;
-    NNNAlertViewButtonBlock _didDismissBlock;
+    TOMAlertViewBlock _willPresentBlock;
+    TOMAlertViewBlock _didPresentBlock;
+    TOMAlertViewBlock _cancelBlock;
+    TOMAlertViewShouldEnableFirstOtherButtonBlock _shouldEnableFirstOtherButtonBlock;
+    TOMAlertViewButtonBlock _willDismissBlock;
+    TOMAlertViewButtonBlock _didDismissBlock;
 }
 
 ///---------------------------
@@ -75,7 +75,7 @@ typedef BOOL (^NNNAlertViewShouldEnableFirstOtherButtonBlock)(NNNAlertView *);
 - (id)initWithTitle:(NSString *)title
             message:(NSString *)message
   cancelButtonTitle:(NSString *)cancelButtonTitle
-        cancelBlock:(NNNAlertViewButtonBlock)cancelBlock;
+        cancelBlock:(TOMAlertViewButtonBlock)cancelBlock;
 
 ///--------------------------
 /// @name Configuring Buttons
@@ -90,10 +90,10 @@ typedef BOOL (^NNNAlertViewShouldEnableFirstOtherButtonBlock)(NNNAlertView *);
  @return The index of the new button. Button indices start at 0 and increase in the order they are added.
  */
 - (NSInteger)addButtonWithTitle:(NSString *)title
-                          block:(NNNAlertViewButtonBlock)block;
+                          block:(TOMAlertViewButtonBlock)block;
 
 - (NSInteger)setCancelButtonWithTitle:(NSString *)title
-                                block:(NNNAlertViewButtonBlock)block;
+                                block:(TOMAlertViewButtonBlock)block;
 
 ///---------------------------
 /// @name Customizing Behavior
@@ -102,31 +102,31 @@ typedef BOOL (^NNNAlertViewShouldEnableFirstOtherButtonBlock)(NNNAlertView *);
 /**
  Block to be executed before an alert view is presented to the user. This block takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) NNNAlertViewBlock willPresentBlock;
+@property(copy, nonatomic) TOMAlertViewBlock willPresentBlock;
 
 /**
  Block to be executed after an alert view is presented to the user. This block takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) NNNAlertViewBlock didPresentBlock;
+@property(copy, nonatomic) TOMAlertViewBlock didPresentBlock;
 
 /**
  Block to be executed before an alert view is cancelled. This block takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) NNNAlertViewBlock cancelBlock;
+@property(copy, nonatomic) TOMAlertViewBlock cancelBlock;
 
 /**
  Block to determine whether the first non-cancel button on the alert should be enabled. This block returns `BOOL` value and takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) NNNAlertViewShouldEnableFirstOtherButtonBlock shouldEnableFirstOtherButtonBlock;
+@property(copy, nonatomic) TOMAlertViewShouldEnableFirstOtherButtonBlock shouldEnableFirstOtherButtonBlock;
 
 /**
  Block to be executed before an alert view is dismissed. This block takes two parameters: the current alert view and index of the button that dismissed it.
  */
-@property(copy, nonatomic) NNNAlertViewButtonBlock willDismissBlock;
+@property(copy, nonatomic) TOMAlertViewButtonBlock willDismissBlock;
 
 /**
  Block to be executed after an alert view is dismissed. This block takes two parameters: the current alert view and index of the button that dismissed it.
  */
-@property(copy, nonatomic) NNNAlertViewButtonBlock didDismissBlock;
+@property(copy, nonatomic) TOMAlertViewButtonBlock didDismissBlock;
 
 @end

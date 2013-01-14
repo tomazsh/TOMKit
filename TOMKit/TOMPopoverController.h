@@ -1,6 +1,6 @@
 //
-//  NNNPopoverController.h
-//  NNNKit
+//  TOMPopoverController.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -26,26 +26,26 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class NNNPopoverController;
+@class TOMPopoverController;
 
 /**
  Popover controller block that takes popover controller as its sole parameter.
  */
-typedef void (^NNNPopoverControllerBlock)(NNNPopoverController *);
+typedef void (^TOMPopoverControllerBlock)(TOMPopoverController *);
 
 /**
  Popover controller block that returns `YES` if popover controller should dismiss, otherwise `NO`, and takes popover controller as its sole parameter.
  */
-typedef BOOL (^NNNPopoverControllerShouldDismissBlock)(NNNPopoverController *);
+typedef BOOL (^TOMPopoverControllerShouldDismissBlock)(TOMPopoverController *);
 
 /**
- `NNNPopoverController` extends `UIPopoverController` with blocks.
+ `TOMPopoverController` extends `UIPopoverController` with blocks.
  */
-@interface NNNPopoverController : UIPopoverController {
+@interface TOMPopoverController : UIPopoverController {
     @private
     id<UIPopoverControllerDelegate> _externalDelegate;
-    NNNPopoverControllerBlock _didDismissBlock;
-    NNNPopoverControllerShouldDismissBlock _shouldDismissBlock;
+    TOMPopoverControllerBlock _didDismissBlock;
+    TOMPopoverControllerShouldDismissBlock _shouldDismissBlock;
 }
 
 ///---------------------------
@@ -55,11 +55,11 @@ typedef BOOL (^NNNPopoverControllerShouldDismissBlock)(NNNPopoverController *);
 /**
  Block to be executed after the popover controller is dismissed. This block takes the current popover controller as its sole parameter.
  */
-@property(copy, nonatomic) NNNPopoverControllerBlock didDismissBlock;
+@property(copy, nonatomic) TOMPopoverControllerBlock didDismissBlock;
 
 /**
  Block to determine if the popover should be dismissed. This block returns `BOOL` value and takes the current popover controller as its sole parameter.
  */
-@property(copy, nonatomic) NNNPopoverControllerShouldDismissBlock shouldDismissBlock;
+@property(copy, nonatomic) TOMPopoverControllerShouldDismissBlock shouldDismissBlock;
 
 @end

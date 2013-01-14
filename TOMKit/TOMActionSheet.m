@@ -1,6 +1,6 @@
 //
-//  NNNActionSheet.m
-//  NNNKit
+//  TOMActionSheet.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,15 +23,15 @@
 //  THE SOFTWARE.
 //
 
-#import "NNNActionSheet.h"
+#import "TOMActionSheet.h"
 
-@interface NNNActionSheet () <UIActionSheetDelegate>
+@interface TOMActionSheet () <UIActionSheetDelegate>
 
 - (void)_initializeActionSheet;
 
 @end
 
-@implementation NNNActionSheet
+@implementation TOMActionSheet
 
 #pragma mark -
 #pragma mark Initialization
@@ -83,7 +83,7 @@
 #pragma mark -
 #pragma mark Instance Methods
 
-- (NSInteger)addButtonWithTitle:(NSString *)title block:(NNNActionSheetButtonBlock)block
+- (NSInteger)addButtonWithTitle:(NSString *)title block:(TOMActionSheetButtonBlock)block
 {
     NSInteger idx = [self addButtonWithTitle:title];
     if (block) {
@@ -92,7 +92,7 @@
     return idx;
 }
 
-- (NSInteger)addDestructiveButtonWithTitle:(NSString *)title block:(NNNActionSheetButtonBlock)block
+- (NSInteger)addDestructiveButtonWithTitle:(NSString *)title block:(TOMActionSheetButtonBlock)block
 {
     [_buttonBlocks removeObjectForKey:[NSNumber numberWithInteger:self.destructiveButtonIndex]];
     NSInteger idx = [self addButtonWithTitle:title block:block];
@@ -100,7 +100,7 @@
     return idx;
 }
 
-- (NSInteger)addCancelButtonWithTitle:(NSString *)title block:(NNNActionSheetButtonBlock)block
+- (NSInteger)addCancelButtonWithTitle:(NSString *)title block:(TOMActionSheetButtonBlock)block
 {
     [_buttonBlocks removeObjectForKey:[NSNumber numberWithInteger:self.cancelButtonIndex]];
     NSInteger idx = [self addButtonWithTitle:title block:block];
@@ -133,9 +133,9 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NNNActionSheetBlock block = [_buttonBlocks objectForKey:[NSNumber numberWithInteger:buttonIndex]];
+    TOMActionSheetBlock block = [_buttonBlocks objectForKey:[NSNumber numberWithInteger:buttonIndex]];
     if (block) {
-        block((NNNActionSheet *)actionSheet);
+        block((TOMActionSheet *)actionSheet);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(actionSheet:clickedButtonAtIndex:)]) {
@@ -146,7 +146,7 @@
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet
 {
     if (_willPresentBlock) {
-        _willPresentBlock((NNNActionSheet *)actionSheet);
+        _willPresentBlock((TOMActionSheet *)actionSheet);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(willPresentActionSheet:)]) {
@@ -157,7 +157,7 @@
 - (void)didPresentActionSheet:(UIActionSheet *)actionSheet
 {
     if (_didPresentBlock) {
-        _didPresentBlock((NNNActionSheet *)actionSheet);
+        _didPresentBlock((TOMActionSheet *)actionSheet);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(didPresentActionSheet:)]) {
@@ -168,7 +168,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (_willDismissBlock) {
-        _willDismissBlock((NNNActionSheet *)actionSheet, buttonIndex);
+        _willDismissBlock((TOMActionSheet *)actionSheet, buttonIndex);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(actionSheet:willDismissWithButtonIndex:)]) {
@@ -179,7 +179,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (_didDismissBlock) {
-        _didDismissBlock((NNNActionSheet *)actionSheet, buttonIndex);
+        _didDismissBlock((TOMActionSheet *)actionSheet, buttonIndex);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(actionSheet:didDismissWithButtonIndex:)]) {
@@ -190,7 +190,7 @@
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
     if (_cancelBlock) {
-        _cancelBlock((NNNActionSheet *)actionSheet);
+        _cancelBlock((TOMActionSheet *)actionSheet);
     }
     
     if ([_externalDelegate respondsToSelector:@selector(actionSheetCancel:)]) {

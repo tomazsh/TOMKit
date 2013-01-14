@@ -1,6 +1,6 @@
 //
-//  NNNActionSheet.h
-//  NNNKit
+//  TOMActionSheet.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -26,30 +26,30 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class NNNActionSheet;
+@class TOMActionSheet;
 
 /**
  Action sheet block that takes action sheet as its sole parameter.
  */
-typedef void (^NNNActionSheetBlock)(NNNActionSheet *);
+typedef void (^TOMActionSheetBlock)(TOMActionSheet *);
 
 /**
  Action sheet block that takes action sheet and button index as its parameters.
  */
-typedef void (^NNNActionSheetButtonBlock)(NNNActionSheet *, NSInteger);
+typedef void (^TOMActionSheetButtonBlock)(TOMActionSheet *, NSInteger);
 
 /**
- `NNNActionSheet` extends `UIActionSheet` with blocks.
+ `TOMActionSheet` extends `UIActionSheet` with blocks.
  */
-@interface NNNActionSheet : UIActionSheet {
+@interface TOMActionSheet : UIActionSheet {
     @private
     id<UIActionSheetDelegate> _externalDelegate;
     NSMutableDictionary *_buttonBlocks;
-    NNNActionSheetBlock _willPresentBlock;
-    NNNActionSheetBlock _didPresentBlock;
-    NNNActionSheetBlock _cancelBlock;
-    NNNActionSheetButtonBlock _willDismissBlock;
-    NNNActionSheetButtonBlock _didDismissBlock;
+    TOMActionSheetBlock _willPresentBlock;
+    TOMActionSheetBlock _didPresentBlock;
+    TOMActionSheetBlock _cancelBlock;
+    TOMActionSheetButtonBlock _willDismissBlock;
+    TOMActionSheetButtonBlock _didDismissBlock;
 }
 
 ///-----------------------------
@@ -78,7 +78,7 @@ typedef void (^NNNActionSheetButtonBlock)(NNNActionSheet *, NSInteger);
  @return The index of the new button. Button indices start at 0 and increase in the order they are added.
  */
 - (NSInteger)addButtonWithTitle:(NSString *)title
-                          block:(NNNActionSheetButtonBlock)block;
+                          block:(TOMActionSheetButtonBlock)block;
 
 /**
  Adds a destructive button to the action sheet with a block to be executed on click.
@@ -89,7 +89,7 @@ typedef void (^NNNActionSheetButtonBlock)(NNNActionSheet *, NSInteger);
  @return The index of the new button. Button indices start at 0 and increase in the order they are added.
  */
 - (NSInteger)addDestructiveButtonWithTitle:(NSString *)title
-                                     block:(NNNActionSheetButtonBlock)block;
+                                     block:(TOMActionSheetButtonBlock)block;
 
 /**
  Adds a cancel button to the action sheet with a block to be executed on click.
@@ -100,7 +100,7 @@ typedef void (^NNNActionSheetButtonBlock)(NNNActionSheet *, NSInteger);
  @return The index of the new button. Button indices start at 0 and increase in the order they are added.
  */
 - (NSInteger)addCancelButtonWithTitle:(NSString *)title
-                                block:(NNNActionSheetButtonBlock)block;
+                                block:(TOMActionSheetButtonBlock)block;
 
 ///---------------------------
 /// @name Customizing Behavior
@@ -109,26 +109,26 @@ typedef void (^NNNActionSheetButtonBlock)(NNNActionSheet *, NSInteger);
 /**
  Block to be executed before an action sheet is presented to the user. This block takes the current action sheet as its sole parameter.
  */
-@property(copy, nonatomic) NNNActionSheetBlock willPresentBlock;
+@property(copy, nonatomic) TOMActionSheetBlock willPresentBlock;
 
 /**
  Block to be executed after an action sheet is presented to the user. This block takes the current action sheet as its sole parameter.
  */
-@property(copy, nonatomic) NNNActionSheetBlock didPresentBlock;
+@property(copy, nonatomic) TOMActionSheetBlock didPresentBlock;
 
 /**
  Block to be executed before an action sheet is cancelled. This block takes the current action sheet as its sole parameter.
  */
-@property(copy, nonatomic) NNNActionSheetBlock cancelBlock;
+@property(copy, nonatomic) TOMActionSheetBlock cancelBlock;
 
 /**
  Block to be executed before an action sheet is dismissed. This block takes two parameters: the current action sheet and index of the button that dismissed it.
  */
-@property(copy, nonatomic) NNNActionSheetButtonBlock willDismissBlock;
+@property(copy, nonatomic) TOMActionSheetButtonBlock willDismissBlock;
 
 /**
  Block to be executed after an action sheet is dismissed. This block takes two parameters: the current action sheet and index of the button that dismissed it.
  */
-@property(copy, nonatomic) NNNActionSheetButtonBlock didDismissBlock;
+@property(copy, nonatomic) TOMActionSheetButtonBlock didDismissBlock;
 
 @end

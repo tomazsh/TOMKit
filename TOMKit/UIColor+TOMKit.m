@@ -1,6 +1,6 @@
 //
-//  NNNKitMethods.m
-//  NNNKit
+//  UIColor+TOMKit.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,20 +23,21 @@
 //  THE SOFTWARE.
 //
 
-#import "NNNKitMethods.h"
+#import "UIColor+TOMKit.h"
 
-CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect) {
-    CGRect rect;
-    rect.origin.x = roundf(containerRect.origin.x + (containerRect.size.width-rectToCenter.size.width)/2.0f);
-    rect.origin.y = roundf(containerRect.origin.y + (containerRect.size.height-rectToCenter.size.height)/2.0f);
-    rect.size = rectToCenter.size;
-    return rect;
+@implementation UIColor (TOMKit)
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (UIColor *)colorWithIntRed:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha
+{
+    return [self colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
 }
 
-UIEdgeInsets UIEdgeInsetsMakeEqual(CGFloat inset) {
-    return UIEdgeInsetsMake(inset, inset, inset, inset);
++ (UIColor *)tableViewDetailLabelColor
+{
+    return [self colorWithIntRed:56 green:84 blue:135 alpha:1.0f];
 }
 
-UIEdgeInsets UIEdgeInsetsMakeSimetric(CGFloat horizontal, CGFloat vertical) {
-    return UIEdgeInsetsMake(horizontal, vertical, horizontal, vertical);
-}
+@end

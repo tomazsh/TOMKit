@@ -1,6 +1,6 @@
 //
-//  NNNKitMethods.h
-//  NNNKit
+//  TOMKitMetrics.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -24,17 +24,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 
-#ifndef CGRectForCenteredRectInRect
-CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect);
+#ifndef UIViewAutoresizingFlexibleMargins
+#define UIViewAutoresizingFlexibleMargins (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin)
 #endif
 
-#ifndef UIEdgeInsetsMakeEqual
-UIEdgeInsets UIEdgeInsetsMakeEqual(CGFloat inset);
+#ifndef UIViewAutoresizingFlexibleDimensions
+#define UIViewAutoresizingFlexibleDimensions (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)
 #endif
 
-#ifndef UIEdgeInsetsMakeSimetric
-UIEdgeInsets UIEdgeInsetsMakeSimetric(CGFloat horizontal, CGFloat vertical);
-#endif
+
+#define TOM_PHONE UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone
+#define TOM_PAD   UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad

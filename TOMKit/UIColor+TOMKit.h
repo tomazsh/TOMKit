@@ -1,6 +1,6 @@
 //
-//  UIScreen+NNNKit.h
-//  NNNKit
+//  UIColor+TOMKit.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -27,37 +27,37 @@
 #import <UIKit/UIKit.h>
 
 /**
- The `UIScreen(NNNKit)` protocol extends `UIScreen`.
+ The `UIColor(TOMKit)` protocol extends `UIColor`.
  */
-@interface UIScreen (NNNKit)
+@interface UIColor (TOMKit)
 
-/// -----------------------
-/// Determining Orientation
-/// -----------------------
+/// -----------------------------------------------------
+/// @name Creating a UIColor Object from Component Values
+/// -----------------------------------------------------
 
 /**
- Returns the current screen orientation.
+ Creates and returns a color object using the specified opacity and RGB component integer values.
  
- @return An `UIInterfaceOrientation` 
- */
-+ (UIInterfaceOrientation)deviceOrientation;
+ @param red The red component of the color object, specified as a value from 0 to 255.
+ @param green The green component of the color object, specified as a value from 0 to 255.
+ @param blue The blue component of the color object, specified as a value from 0 to 255.
 
-/// -----------------------------
-/// Determining Screen Resolution
-/// -----------------------------
+ @return An `UIColor` value.
+ */
++ (UIColor *)colorWithIntRed:(NSUInteger)red
+                       green:(NSUInteger)green
+                        blue:(NSUInteger)blue
+                       alpha:(CGFloat)alpha;
+
+/// -------------------
+/// @name System Colors
+/// -------------------
 
 /**
- Checks if the main screen is retina.
+ Returns the system color used for displaying text in table view cells labels for detail text.
  
- @return `YES` if main screen is retina; otherwise `NO`.
+ @return An `UIColor` value.
  */
-+ (BOOL)isMainScreenRetina;
-
-/**
- Checks if the receiver is retina.
- 
- @return `YES` if main screen is retina; otherwise `NO`.
- */
-- (BOOL)isRetina;
++ (UIColor *)tableViewDetailLabelColor;
 
 @end

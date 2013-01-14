@@ -1,6 +1,6 @@
 //
-//  UIAlertView+NNNKit.m
-//  NNNKit
+//  TOMKitMethods.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,22 +23,20 @@
 //  THE SOFTWARE.
 //
 
-#import "UIAlertView+NNNKit.h"
+#import "TOMKitMethods.h"
 
-@implementation UIAlertView (NNNKit)
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (void)showAlertWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle
-{
-    UIAlertView *alertView = [[self alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
-    [alertView show];
+CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect) {
+    CGRect rect;
+    rect.origin.x = roundf(containerRect.origin.x + (containerRect.size.width-rectToCenter.size.width)/2.0f);
+    rect.origin.y = roundf(containerRect.origin.y + (containerRect.size.height-rectToCenter.size.height)/2.0f);
+    rect.size = rectToCenter.size;
+    return rect;
 }
 
-+ (void)showError:(NSError *)error withTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle
-{
-    [self showAlertWithTitle:title message:[error localizedDescription] cancelButtonTitle:cancelButtonTitle];
+UIEdgeInsets UIEdgeInsetsMakeEqual(CGFloat inset) {
+    return UIEdgeInsetsMake(inset, inset, inset, inset);
 }
 
-@end
+UIEdgeInsets UIEdgeInsetsMakeSimetric(CGFloat horizontal, CGFloat vertical) {
+    return UIEdgeInsetsMake(horizontal, vertical, horizontal, vertical);
+}

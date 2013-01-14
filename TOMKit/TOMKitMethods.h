@@ -1,6 +1,6 @@
 //
-//  NNNKit.h
-//  NNNKit
+//  TOMKitMethods.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,12 +23,18 @@
 //  THE SOFTWARE.
 //
 
-#import "NNNActionSheet.h"
-#import "NNNAlertView.h"
-#import "NNNKitMethods.h"
-#import "NNNKitMetrics.h"
-#import "NNNPopoverController.h"
-#import "UIAlertView+NNNKit.h"
-#import "UIColor+NNNKit.h"
-#import "UIImage+NNNKit.h"
-#import "UIScreen+NNNKit.h"
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
+
+#ifndef CGRectForCenteredRectInRect
+CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect);
+#endif
+
+#ifndef UIEdgeInsetsMakeEqual
+UIEdgeInsets UIEdgeInsetsMakeEqual(CGFloat inset);
+#endif
+
+#ifndef UIEdgeInsetsMakeSimetric
+UIEdgeInsets UIEdgeInsetsMakeSimetric(CGFloat horizontal, CGFloat vertical);
+#endif

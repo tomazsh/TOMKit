@@ -1,6 +1,6 @@
 //
-//  UIImage+NNNKit.m
-//  NNNKit
+//  UIImage+TOMKit.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,10 +23,10 @@
 //  THE SOFTWARE.
 //
 
-#import "UIImage+NNNKit.h"
-#import "UIScreen+NNNKit.h"
+#import "UIImage+TOMKit.h"
+#import "UIScreen+TOMKit.h"
 
-@interface UIImage (NNNKitPrivate)
+@interface UIImage (TOMKitPrivate)
 
 #ifdef __IMAGEIO__
 
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation UIImage (NNNKitPrivate)
+@implementation UIImage (TOMKitPrivate)
 
 #pragma mark -
 #pragma mark Class Methods

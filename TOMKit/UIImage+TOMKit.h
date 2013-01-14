@@ -1,6 +1,6 @@
 //
-//  UIImage+NNNKit.h
-//  NNNKit
+//  UIImage+TOMKit.h
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -27,13 +27,13 @@
 #import <UIKit/UIKit.h>
 
 /**
- The `UIImage(NNNKit)` protocol extends `UIImage`.
+ The `UIImage(TOMKit)` protocol extends `UIImage`.
  */
-@interface UIImage (NNNKit)
+@interface UIImage (TOMKit)
 
-/// ------------------------
-/// Creating Bordered Images
-/// ------------------------
+/// ------------------------------
+/// @name Creating Bordered Images
+/// ------------------------------
 
 /**
  Creates a new image from the receiver and supplied parameters in the background and returns it in a block.
@@ -92,9 +92,9 @@
 
 #ifdef __IMAGEIO__
 
-/// ------------------------
-/// Creating Animated Images
-/// ------------------------
+/// ------------------------------
+/// @name Creating Animated Images
+/// ------------------------------
 
 /**
  Checks the number of source images in the supplied data object. You can use this method to test whether image data can be converted to animated image.

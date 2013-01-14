@@ -1,6 +1,6 @@
 //
-//  UIColor+NNNKit.m
-//  NNNKit
+//  UIScreen+TOMKit.m
+//  TOMKit
 //
 //  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
 //
@@ -23,21 +23,34 @@
 //  THE SOFTWARE.
 //
 
-#import "UIColor+NNNKit.h"
+#import "UIScreen+TOMKit.h"
 
-@implementation UIColor (NNNKit)
+@implementation UIScreen (TOMKit)
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (UIColor *)colorWithIntRed:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha
++ (UIInterfaceOrientation)deviceOrientation
 {
-    return [self colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
+    return [[UIApplication sharedApplication] statusBarOrientation];
 }
 
-+ (UIColor *)tableViewDetailLabelColor
++ (BOOL)isMainScreenRetina
 {
-    return [self colorWithIntRed:56 green:84 blue:135 alpha:1.0f];
+    static BOOL IsRetina;
+    static dispatch_once_t predicate;
+	dispatch_once(&predicate, ^{
+		IsRetina = ([[[self class] mainScreen] isRetina]);
+	});
+	return IsRetina;
+}
+
+#pragma mark -
+#pragma mark Instance Methods
+
+- (BOOL)isRetina
+{
+    return [self respondsToSelector:@selector(scale)] && [self scale] == 2;
 }
 
 @end

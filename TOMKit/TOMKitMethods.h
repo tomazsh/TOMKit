@@ -31,6 +31,14 @@
 CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect);
 #endif
 
+#ifndef CGRectByAddingPoint
+CGRect CGRectByAddingPoint(CGRect rect, CGPoint point);
+#endif
+
+#ifndef CGSizeThatFitsSize
+CGSize CGSizeThatFitsSize(CGSize originalSize, CGSize sizeToFit);
+#endif
+
 #ifndef UIEdgeInsetsMakeEqual
 UIEdgeInsets UIEdgeInsetsMakeEqual(CGFloat inset);
 #endif

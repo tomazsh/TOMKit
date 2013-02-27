@@ -32,3 +32,4 @@
 #import "UIColor+TOMKit.h"
 #import "UIImage+TOMKit.h"
 #import "UIScreen+TOMKit.h"
+#import "UIView+TOMKit.h"

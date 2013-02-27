@@ -42,7 +42,7 @@
  @param cornerRadius Corner radius.
  @param completed A block to be executed when an image is created. This block takes the newly created image as its sole parameter.
  
- @return An `UIImage` object.
+ @return A `UIImage` object.
  */
 - (void)imageWithSize:(CGSize)size
          cornerRadius:(CGFloat)cornerRadius
@@ -57,7 +57,7 @@
  @param borderColor Border color. May be `nil`.
  @param completed A block to be executed when an image is created. This block takes the newly created image as its sole parameter.
  
- @return An `UIImage` object.
+ @return A `UIImage` object.
  */
 - (void)imageWithSize:(CGSize)size
          cornerRadius:(CGFloat)cornerRadius
@@ -78,7 +78,7 @@
  @param foregroundColor Foreground color. May be `nil`.
  @param backgroundColor Background color. May be `nil`.
  
- @return An `UIImage` object.
+ @return A `UIImage` object.
  */
 - (UIImage *)imageWithSize:(CGSize)size
             radiiAtTopLeft:(CGFloat)topLeftRadius
@@ -110,7 +110,7 @@
  
  @param data Data to use.
  
- @return An `UIImage` object.
+ @return A `UIImage` object.
  */
 + (UIImage *)animatedImageWithData:(NSData *)data;
 

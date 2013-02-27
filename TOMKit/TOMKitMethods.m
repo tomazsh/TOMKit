@@ -33,6 +33,38 @@ CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect) {
     return rect;
 }
 
+CGRect CGRectByAddingPoint(CGRect rect, CGPoint point)
+{
+    CGRect newRect = rect;
+    newRect.origin.x += point.x;
+    newRect.origin.y += point.y;
+    return newRect;
+}
+
+CGSize CGSizeThatFitsSize(CGSize originalSize, CGSize sizeToFit) {
+	CGFloat destinationWidth, destinationHeight;
+	if (originalSize.width > originalSize.height) {
+		destinationWidth = sizeToFit.width;
+		destinationHeight = originalSize.height * sizeToFit.width / originalSize.width;
+	}
+	else {
+		destinationHeight = sizeToFit.height;
+		destinationWidth = originalSize.width * sizeToFit.height / originalSize.height;
+	}
+    
+	if (destinationHeight > sizeToFit.width) {
+		destinationWidth = sizeToFit.width;
+		destinationHeight = originalSize.height * sizeToFit.width / originalSize.width;
+	}
+	
+    if (destinationHeight > sizeToFit.height) {
+		destinationHeight = sizeToFit.height;
+		destinationWidth = originalSize.width * sizeToFit.height / originalSize.height;
+	}
+    
+    return CGSizeMake(destinationWidth, destinationHeight);
+}
+
 UIEdgeInsets UIEdgeInsetsMakeEqual(CGFloat inset) {
     return UIEdgeInsetsMake(inset, inset, inset, inset);
 }

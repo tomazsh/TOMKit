@@ -70,5 +70,5 @@ UIEdgeInsets UIEdgeInsetsMakeEqual(CGFloat inset) {
 }
 
 UIEdgeInsets UIEdgeInsetsMakeSimetric(CGFloat horizontal, CGFloat vertical) {
-    return UIEdgeInsetsMake(horizontal, vertical, horizontal, vertical);
+    return UIEdgeInsetsMake(vertical, horizontal, vertical, horizontal);
 }

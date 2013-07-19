@@ -54,7 +54,7 @@ typedef void (^TOMActionSheetButtonBlock)(TOMActionSheet *, NSInteger);
  
  @return A newly initialized action sheet.
  */
-- (id)initWithTitle:(NSString *)title;
+- (instancetype)initWithTitle:(NSString *)title;
 
 ///--------------------------
 /// @name Configuring Buttons

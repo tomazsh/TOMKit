@@ -57,8 +57,7 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title message:(NSString *)message
-cancelButtonTitle:(NSString *)cancelButtonTitle cancelBlock:(TOMAlertViewButtonBlock)cancelBlock
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle cancelBlock:(TOMAlertViewButtonBlock)cancelBlock
 {
     self = [super initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
     if (self) {

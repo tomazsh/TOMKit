@@ -62,10 +62,10 @@ typedef BOOL (^TOMAlertViewShouldEnableFirstOtherButtonBlock)(TOMAlertView *);
  
  @return A newly initialized action sheet.
  */
-- (id)initWithTitle:(NSString *)title
-            message:(NSString *)message
-  cancelButtonTitle:(NSString *)cancelButtonTitle
-        cancelBlock:(TOMAlertViewButtonBlock)cancelBlock;
+- (instancetype)initWithTitle:(NSString *)title
+                      message:(NSString *)message
+            cancelButtonTitle:(NSString *)cancelButtonTitle
+                  cancelBlock:(TOMAlertViewButtonBlock)cancelBlock;
 
 ///--------------------------
 /// @name Configuring Buttons

@@ -57,7 +57,7 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title
+- (instancetype)initWithTitle:(NSString *)title
 {
     self = [super initWithTitle:title delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     if (self) {

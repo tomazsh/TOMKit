@@ -27,7 +27,7 @@
 
 @interface TOMPopoverController () <UIPopoverControllerDelegate>
 
-- (void)_initializePopoverController;
+- (void)initTOMPopoverController;
 
 @end
 
@@ -40,7 +40,7 @@
 {
     self = [super init];
     if (self) {
-        [self _initializePopoverController];
+        [self initTOMPopoverController];
     }
     return self;
 }
@@ -49,12 +49,12 @@
 {
     self = [super initWithContentViewController:viewController];
     if (self) {
-        [self _initializePopoverController];
+        [self initTOMPopoverController];
     }
     return self;
 }
 
-- (void)_initializePopoverController
+- (void)initTOMPopoverController
 {
     if (!self.delegate) {
         self.delegate = self;

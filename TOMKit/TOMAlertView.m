@@ -27,7 +27,7 @@
 
 @interface TOMAlertView () <UIAlertViewDelegate>
 
-- (void)_initializeAlertView;
+- (void)initTOMAlertView;
 
 @end
 
@@ -40,7 +40,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self _initializeAlertView];
+        [self initTOMAlertView];
     }
     return self;
 }
@@ -49,7 +49,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self _initializeAlertView];
+        [self initTOMAlertView];
     }
     return self;
 }
@@ -59,7 +59,7 @@
 {
     self = [super initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
     if (self) {
-        [self _initializeAlertView];
+        [self initTOMAlertView];
         if (cancelBlock) {
             [_buttonBlocks setObject:cancelBlock forKey:[NSNumber numberWithInteger:self.cancelButtonIndex]];
         }
@@ -67,7 +67,7 @@
     return self;
 }
 
-- (void)_initializeAlertView
+- (void)initTOMAlertView
 {
     if (!self.delegate) {
         self.delegate = self;

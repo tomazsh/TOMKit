@@ -27,7 +27,7 @@
 
 @interface TOMActionSheet () <UIActionSheetDelegate>
 
-- (void)_initializeActionSheet;
+- (void)initTOMActionSheet;
 
 @end
 
@@ -40,7 +40,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self _initializeActionSheet];
+        [self initTOMActionSheet];
     }
     return self;
 }
@@ -49,7 +49,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self _initializeActionSheet];
+        [self initTOMActionSheet];
     }
     return self;
 }
@@ -58,7 +58,7 @@
 {
     self = [super initWithTitle:title delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     if (self) {
-        [self _initializeActionSheet];
+        [self initTOMActionSheet];
     }
     return self;
 }
@@ -67,12 +67,12 @@
 {
     self = [super initWithTitle:title delegate:delegate cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:otherButtonTitles, nil];
     if (self) {
-        [self _initializeActionSheet];
+        [self initTOMActionSheet];
     }
     return self;
 }
 
-- (void)_initializeActionSheet
+- (void)initTOMActionSheet
 {
     if (!self.delegate) {
         self.delegate = self;

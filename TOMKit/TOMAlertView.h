@@ -46,17 +46,7 @@ typedef BOOL (^TOMAlertViewShouldEnableFirstOtherButtonBlock)(TOMAlertView *);
 /**
  `TOMAlertView` extends `UIAlertView` with blocks.
  */
-@interface TOMAlertView : UIAlertView {
-    @private
-    id<UIAlertViewDelegate> _externalDelegate;
-    NSMutableDictionary *_buttonBlocks;
-    TOMAlertViewBlock _willPresentBlock;
-    TOMAlertViewBlock _didPresentBlock;
-    TOMAlertViewBlock _cancelBlock;
-    TOMAlertViewShouldEnableFirstOtherButtonBlock _shouldEnableFirstOtherButtonBlock;
-    TOMAlertViewButtonBlock _willDismissBlock;
-    TOMAlertViewButtonBlock _didDismissBlock;
-}
+@interface TOMAlertView : UIAlertView
 
 ///---------------------------
 /// @name Creating Alert Views
@@ -102,31 +92,31 @@ typedef BOOL (^TOMAlertViewShouldEnableFirstOtherButtonBlock)(TOMAlertView *);
 /**
  Block to be executed before an alert view is presented to the user. This block takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) TOMAlertViewBlock willPresentBlock;
+@property (copy, nonatomic) TOMAlertViewBlock willPresentBlock;
 
 /**
  Block to be executed after an alert view is presented to the user. This block takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) TOMAlertViewBlock didPresentBlock;
+@property (copy, nonatomic) TOMAlertViewBlock didPresentBlock;
 
 /**
  Block to be executed before an alert view is cancelled. This block takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) TOMAlertViewBlock cancelBlock;
+@property (copy, nonatomic) TOMAlertViewBlock cancelBlock;
 
 /**
  Block to determine whether the first non-cancel button on the alert should be enabled. This block returns `BOOL` value and takes the current alert view as its sole parameter.
  */
-@property(copy, nonatomic) TOMAlertViewShouldEnableFirstOtherButtonBlock shouldEnableFirstOtherButtonBlock;
+@property (copy, nonatomic) TOMAlertViewShouldEnableFirstOtherButtonBlock shouldEnableFirstOtherButtonBlock;
 
 /**
  Block to be executed before an alert view is dismissed. This block takes two parameters: the current alert view and index of the button that dismissed it.
  */
-@property(copy, nonatomic) TOMAlertViewButtonBlock willDismissBlock;
+@property (copy, nonatomic) TOMAlertViewButtonBlock willDismissBlock;
 
 /**
  Block to be executed after an alert view is dismissed. This block takes two parameters: the current alert view and index of the button that dismissed it.
  */
-@property(copy, nonatomic) TOMAlertViewButtonBlock didDismissBlock;
+@property (copy, nonatomic) TOMAlertViewButtonBlock didDismissBlock;
 
 @end

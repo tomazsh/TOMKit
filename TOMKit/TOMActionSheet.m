@@ -27,6 +27,9 @@
 
 @interface TOMActionSheet () <UIActionSheetDelegate>
 
+@property (weak, nonatomic) id<UIActionSheetDelegate> externalDelegate;
+@property (strong, nonatomic) NSMutableDictionary *buttonBlocks;
+
 - (void)initTOMActionSheet;
 
 @end

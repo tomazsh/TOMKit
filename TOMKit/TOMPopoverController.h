@@ -41,12 +41,7 @@ typedef BOOL (^TOMPopoverControllerShouldDismissBlock)(TOMPopoverController *);
 /**
  `TOMPopoverController` extends `UIPopoverController` with blocks.
  */
-@interface TOMPopoverController : UIPopoverController {
-    @private
-    id<UIPopoverControllerDelegate> _externalDelegate;
-    TOMPopoverControllerBlock _didDismissBlock;
-    TOMPopoverControllerShouldDismissBlock _shouldDismissBlock;
-}
+@interface TOMPopoverController : UIPopoverController
 
 ///---------------------------
 /// @name Customizing Behavior
@@ -55,11 +50,11 @@ typedef BOOL (^TOMPopoverControllerShouldDismissBlock)(TOMPopoverController *);
 /**
  Block to be executed after the popover controller is dismissed. This block takes the current popover controller as its sole parameter.
  */
-@property(copy, nonatomic) TOMPopoverControllerBlock didDismissBlock;
+@property (copy, nonatomic) TOMPopoverControllerBlock didDismissBlock;
 
 /**
  Block to determine if the popover should be dismissed. This block returns `BOOL` value and takes the current popover controller as its sole parameter.
  */
-@property(copy, nonatomic) TOMPopoverControllerShouldDismissBlock shouldDismissBlock;
+@property (copy, nonatomic) TOMPopoverControllerShouldDismissBlock shouldDismissBlock;
 
 @end

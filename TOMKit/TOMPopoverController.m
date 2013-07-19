@@ -27,6 +27,8 @@
 
 @interface TOMPopoverController () <UIPopoverControllerDelegate>
 
+@property (weak, nonatomic) id<UIPopoverControllerDelegate> externalDelegate;
+
 - (void)initTOMPopoverController;
 
 @end

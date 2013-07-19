@@ -41,16 +41,7 @@ typedef void (^TOMActionSheetButtonBlock)(TOMActionSheet *, NSInteger);
 /**
  `TOMActionSheet` extends `UIActionSheet` with blocks.
  */
-@interface TOMActionSheet : UIActionSheet {
-    @private
-    id<UIActionSheetDelegate> _externalDelegate;
-    NSMutableDictionary *_buttonBlocks;
-    TOMActionSheetBlock _willPresentBlock;
-    TOMActionSheetBlock _didPresentBlock;
-    TOMActionSheetBlock _cancelBlock;
-    TOMActionSheetButtonBlock _willDismissBlock;
-    TOMActionSheetButtonBlock _didDismissBlock;
-}
+@interface TOMActionSheet : UIActionSheet
 
 ///-----------------------------
 /// @name Creating Action Sheets
@@ -109,26 +100,26 @@ typedef void (^TOMActionSheetButtonBlock)(TOMActionSheet *, NSInteger);
 /**
  Block to be executed before an action sheet is presented to the user. This block takes the current action sheet as its sole parameter.
  */
-@property(copy, nonatomic) TOMActionSheetBlock willPresentBlock;
+@property (copy, nonatomic) TOMActionSheetBlock willPresentBlock;
 
 /**
  Block to be executed after an action sheet is presented to the user. This block takes the current action sheet as its sole parameter.
  */
-@property(copy, nonatomic) TOMActionSheetBlock didPresentBlock;
+@property (copy, nonatomic) TOMActionSheetBlock didPresentBlock;
 
 /**
  Block to be executed before an action sheet is cancelled. This block takes the current action sheet as its sole parameter.
  */
-@property(copy, nonatomic) TOMActionSheetBlock cancelBlock;
+@property (copy, nonatomic) TOMActionSheetBlock cancelBlock;
 
 /**
  Block to be executed before an action sheet is dismissed. This block takes two parameters: the current action sheet and index of the button that dismissed it.
  */
-@property(copy, nonatomic) TOMActionSheetButtonBlock willDismissBlock;
+@property (copy, nonatomic) TOMActionSheetButtonBlock willDismissBlock;
 
 /**
  Block to be executed after an action sheet is dismissed. This block takes two parameters: the current action sheet and index of the button that dismissed it.
  */
-@property(copy, nonatomic) TOMActionSheetButtonBlock didDismissBlock;
+@property (copy, nonatomic) TOMActionSheetButtonBlock didDismissBlock;
 
 @end

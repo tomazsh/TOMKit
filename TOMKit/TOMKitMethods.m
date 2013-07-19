@@ -27,8 +27,8 @@
 
 CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect) {
     CGRect rect;
-    rect.origin.x = roundf(containerRect.origin.x + (containerRect.size.width-rectToCenter.size.width)/2.0f);
-    rect.origin.y = roundf(containerRect.origin.y + (containerRect.size.height-rectToCenter.size.height)/2.0f);
+    rect.origin.x = CGRectGetMinX(containerRect) + (CGRectGetWidth(containerRect)-CGRectGetWidth(rectToCenter))/2.0f;
+    rect.origin.y = CGRectGetMinY(containerRect) + (CGRectGetHeight(containerRect)-CGRectGetHeight(rectToCenter))/2.0f;
     rect.size = rectToCenter.size;
     return rect;
 }

@@ -15,12 +15,12 @@
 
 #ifdef QUARTZCORE_H
 
-- (UIImage *)imageByRenderingLayer
+- (UIImage *)tom_imageByRenderingLayer
 {
-    return [self imageByRenderingLayerFrame:self.layer.bounds opaque:self.opaque];
+    return [self tom_imageByRenderingLayerFrame:self.layer.bounds opaque:self.opaque];
 }
 
-- (UIImage *)imageByRenderingLayerFrame:(CGRect)frame opaque:(BOOL)opaque
+- (UIImage *)tom_imageByRenderingLayerFrame:(CGRect)frame opaque:(BOOL)opaque
 {
     UIGraphicsBeginImageContextWithOptions(frame.size, opaque, [[UIScreen mainScreen] scale]);
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
@@ -31,13 +31,13 @@
     return image;
 }
 
-- (void)imageByRenderingLayerCompletion:(void (^)(UIImage *))completion
+- (void)tom_imageByRenderingLayerCompletion:(void (^)(UIImage *))completion
 {
     NSAssert(completion, @"Completion block is missing.");
     
     __block UIImage *image = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        image = [self imageByRenderingLayer];
+        image = [self tom_imageByRenderingLayer];
         dispatch_sync(dispatch_get_main_queue(), ^{
             completion(image);
         });

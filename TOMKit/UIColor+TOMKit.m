@@ -30,14 +30,14 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (UIColor *)colorWithIntRed:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha
++ (UIColor *)tom_colorWithIntRed:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue alpha:(CGFloat)alpha
 {
     return [self colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
 }
 
-+ (UIColor *)tableViewDetailLabelColor
++ (UIColor *)tom_tableViewDetailLabelColor
 {
-    return [self colorWithIntRed:56 green:84 blue:135 alpha:1.0f];
+    return [self tom_colorWithIntRed:56 green:84 blue:135 alpha:1.0f];
 }
 
 @end

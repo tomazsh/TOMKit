@@ -44,9 +44,9 @@
  
  @return A `UIImage` object.
  */
-- (void)imageWithSize:(CGSize)size
-         cornerRadius:(CGFloat)cornerRadius
-            completed:(void (^)(UIImage *image))completed;
+- (void)tom_imageWithSize:(CGSize)size
+             cornerRadius:(CGFloat)cornerRadius
+                completed:(void (^)(UIImage *image))completed;
 
 /**
  Creates a new image from the receiver and supplied parameters in the background and returns it in a block.
@@ -59,11 +59,11 @@
  
  @return A `UIImage` object.
  */
-- (void)imageWithSize:(CGSize)size
-         cornerRadius:(CGFloat)cornerRadius
-          borderWidth:(CGFloat)borderWidth
-          borderColor:(UIColor *)borderColor
-            completed:(void (^)(UIImage *image))completed;
+- (void)tom_imageWithSize:(CGSize)size
+             cornerRadius:(CGFloat)cornerRadius
+              borderWidth:(CGFloat)borderWidth
+              borderColor:(UIColor *)borderColor
+                completed:(void (^)(UIImage *image))completed;
 
 /**
  Creates a new image from the receiver and supplied parameters.
@@ -80,15 +80,15 @@
  
  @return A `UIImage` object.
  */
-- (UIImage *)imageWithSize:(CGSize)size
-            radiiAtTopLeft:(CGFloat)topLeftRadius
-                  topRight:(CGFloat)topRightRadius
-               bottomRight:(CGFloat)bottomRightRadius
-                bottomLeft:(CGFloat)bottomLeftRadius
-               borderWidth:(CGFloat)borderWidth
-               borderColor:(UIColor *)borderColor
-           foregroundColor:(UIColor *)foregroundColor
-           backgroundColor:(UIColor *)backgroundColor;
+- (UIImage *)tom_imageWithSize:(CGSize)size
+                radiiAtTopLeft:(CGFloat)topLeftRadius
+                      topRight:(CGFloat)topRightRadius
+                   bottomRight:(CGFloat)bottomRightRadius
+                    bottomLeft:(CGFloat)bottomLeftRadius
+                   borderWidth:(CGFloat)borderWidth
+                   borderColor:(UIColor *)borderColor
+               foregroundColor:(UIColor *)foregroundColor
+               backgroundColor:(UIColor *)backgroundColor;
 
 #ifdef __IMAGEIO__
 
@@ -103,7 +103,7 @@
  
  @return Number of source images.
  */
-+ (NSUInteger)numberOfImagesInData:(NSData *)data;
++ (NSUInteger)tom_numberOfImagesInData:(NSData *)data;
 
 /**
  Creates an animated image from supplied data, ie. GIF image.
@@ -112,7 +112,7 @@
  
  @return A `UIImage` object.
  */
-+ (UIImage *)animatedImageWithData:(NSData *)data;
++ (UIImage *)tom_animatedImageWithData:(NSData *)data;
 
 #endif
 

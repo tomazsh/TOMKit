@@ -22,16 +22,17 @@
  
  @return A `UIImage` instance.
  */
-- (UIImage *)imageByRenderingLayer;
+- (UIImage *)tom_imageByRenderingLayer;
 
-- (UIImage *)imageByRenderingLayerFrame:(CGRect)frame opaque:(BOOL)opaque;
+- (UIImage *)tom_imageByRenderingLayerFrame:(CGRect)frame
+                                     opaque:(BOOL)opaque;
 
 /**
  Renders an image from current layer in background on the global queue.
  
  @param completion Block to be executed when rendering is complete. This block has no return type and takes the returned image as its sole parameter.
  */
-- (void)imageByRenderingLayerCompletion:(void (^)(UIImage *))completion;
+- (void)tom_imageByRenderingLayerCompletion:(void (^)(UIImage *))completion;
 
 #endif
 

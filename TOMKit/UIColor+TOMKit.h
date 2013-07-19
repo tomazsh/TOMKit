@@ -44,10 +44,10 @@
 
  @return An `UIColor` value.
  */
-+ (UIColor *)colorWithIntRed:(NSUInteger)red
-                       green:(NSUInteger)green
-                        blue:(NSUInteger)blue
-                       alpha:(CGFloat)alpha;
++ (UIColor *)tom_colorWithIntRed:(NSUInteger)red
+                           green:(NSUInteger)green
+                            blue:(NSUInteger)blue
+                           alpha:(CGFloat)alpha;
 
 /// -------------------
 /// @name System Colors
@@ -58,6 +58,6 @@
  
  @return An `UIColor` value.
  */
-+ (UIColor *)tableViewDetailLabelColor;
++ (UIColor *)tom_tableViewDetailLabelColor;
 
 @end

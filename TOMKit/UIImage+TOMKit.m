@@ -30,8 +30,8 @@
 
 #ifdef __IMAGEIO__
 
-+ (UIImage *)_animatedImageWithAnimatedGIFImageSource:(CGImageSourceRef)source duration:(NSTimeInterval)duration;
-+ (NSTimeInterval)_durationForGIFData:(NSData *)data;
++ (UIImage *)tom_animatedImageWithAnimatedGIFImageSource:(CGImageSourceRef)source duration:(NSTimeInterval)duration;
++ (NSTimeInterval)tom_durationForGIFData:(NSData *)data;
 
 #endif
 
@@ -44,7 +44,7 @@
 
 #ifdef __IMAGEIO__
 
-+ (UIImage *)_animatedImageWithAnimatedGIFImageSource:(CGImageSourceRef)source duration:(NSTimeInterval)duration
++ (UIImage *)tom_animatedImageWithAnimatedGIFImageSource:(CGImageSourceRef)source duration:(NSTimeInterval)duration
 {
     if (!source) return nil;
     
@@ -64,7 +64,7 @@
     return image;
 }
 
-+ (NSTimeInterval)_durationForGIFData:(NSData *)data
++ (NSTimeInterval)tom_durationForGIFData:(NSData *)data
 {
     __block CGFloat duration = 0;
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -98,12 +98,12 @@
 #pragma mark -
 #pragma mark Instance Methods
 
-- (void)imageWithSize:(CGSize)size cornerRadius:(CGFloat)cornerRadius completed:(void (^)(UIImage *image))completed
+- (void)tom_imageWithSize:(CGSize)size cornerRadius:(CGFloat)cornerRadius completed:(void (^)(UIImage *image))completed
 {
-    [self imageWithSize:size cornerRadius:cornerRadius borderWidth:0.0f borderColor:nil completed:completed];
+    [self tom_imageWithSize:size cornerRadius:cornerRadius borderWidth:0.0f borderColor:nil completed:completed];
 }
 
-- (void)imageWithSize:(CGSize)size cornerRadius:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor completed:(void (^)(UIImage *image))completed
+- (void)tom_imageWithSize:(CGSize)size cornerRadius:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor completed:(void (^)(UIImage *image))completed
 {
     if (!completed) {
         return;
@@ -111,14 +111,14 @@
     
     __block UIImage *image = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        image = [self imageWithSize:size radiiAtTopLeft:cornerRadius topRight:cornerRadius bottomRight:cornerRadius bottomLeft:cornerRadius borderWidth:borderWidth borderColor:borderColor foregroundColor:nil backgroundColor:[UIColor clearColor]];
+        image = [self tom_imageWithSize:size radiiAtTopLeft:cornerRadius topRight:cornerRadius bottomRight:cornerRadius bottomLeft:cornerRadius borderWidth:borderWidth borderColor:borderColor foregroundColor:nil backgroundColor:[UIColor clearColor]];
         dispatch_sync(dispatch_get_main_queue(), ^{
             completed(image);
         });
     });
 }
 
-- (UIImage *)imageWithSize:(CGSize)size radiiAtTopLeft:(CGFloat)topLeftRadius topRight:(CGFloat)topRightRadius bottomRight:(CGFloat)bottomRightRadius bottomLeft:(CGFloat)bottomLeftRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor foregroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor
+- (UIImage *)tom_imageWithSize:(CGSize)size radiiAtTopLeft:(CGFloat)topLeftRadius topRight:(CGFloat)topRightRadius bottomRight:(CGFloat)bottomRightRadius bottomLeft:(CGFloat)bottomLeftRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor foregroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor
 {
     backgroundColor = backgroundColor ?: [UIColor whiteColor];
     
@@ -171,7 +171,7 @@
 
 #ifdef __IMAGEIO__
 
-+ (NSUInteger)numberOfImagesInData:(NSData *)data
++ (NSUInteger)tom_numberOfImagesInData:(NSData *)data
 {
     __block NSUInteger count = 0;
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -182,11 +182,11 @@
     return count;
 }
 
-+ (UIImage *)animatedImageWithGIFData:(NSData *)data
++ (UIImage *)tom_animatedImageWithGIFData:(NSData *)data
 {
-    NSTimeInterval duration = [self _durationForGIFData:data];
+    NSTimeInterval duration = [self tom_durationForGIFData:data];
     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
-    UIImage *image = [UIImage _animatedImageWithAnimatedGIFImageSource:source duration:duration];
+    UIImage *image = [UIImage tom_animatedImageWithAnimatedGIFImageSource:source duration:duration];
     CFRelease(source);
     return image;
 }

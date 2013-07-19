@@ -40,7 +40,7 @@
  
  @return An `UIInterfaceOrientation` 
  */
-+ (UIInterfaceOrientation)deviceOrientation;
++ (UIInterfaceOrientation)tom_deviceOrientation;
 
 /// -----------------------------------
 /// @name Determining Screen Resolution
@@ -51,13 +51,13 @@
  
  @return `YES` if main screen is retina; otherwise `NO`.
  */
-+ (BOOL)isMainScreenRetina;
++ (BOOL)tom_isMainScreenRetina;
 
 /**
  Checks if the receiver is retina.
  
  @return `YES` if main screen is retina; otherwise `NO`.
  */
-- (BOOL)isRetina;
+- (BOOL)tom_isRetina;
 
 @end

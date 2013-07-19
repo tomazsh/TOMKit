@@ -42,9 +42,9 @@
  @param message Descriptive text that provides more details than the title.
  @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
  */
-+ (void)showAlertWithTitle:(NSString *)title
-                   message:(NSString *)message
-         cancelButtonTitle:(NSString *)cancelButtonTitle;
++ (void)tom_showAlertWithTitle:(NSString *)title
+                       message:(NSString *)message
+             cancelButtonTitle:(NSString *)cancelButtonTitle;
 
 /**
  Creates a new alert view with supplied parameters and displays it.
@@ -53,8 +53,8 @@
  @param title The string that appears in the receiver’s title bar.
  @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
  */
-+ (void)showError:(NSError *)error
-        withTitle:(NSString *)title
-cancelButtonTitle:(NSString *)cancelButtonTitle;
++ (void)tom_showError:(NSError *)error
+            withTitle:(NSString *)title
+    cancelButtonTitle:(NSString *)cancelButtonTitle;
 
 @end

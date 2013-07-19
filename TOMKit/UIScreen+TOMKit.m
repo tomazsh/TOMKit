@@ -30,17 +30,17 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (UIInterfaceOrientation)deviceOrientation
++ (UIInterfaceOrientation)tom_deviceOrientation
 {
     return [[UIApplication sharedApplication] statusBarOrientation];
 }
 
-+ (BOOL)isMainScreenRetina
++ (BOOL)tom_isMainScreenRetina
 {
     static BOOL IsRetina;
     static dispatch_once_t predicate;
 	dispatch_once(&predicate, ^{
-		IsRetina = ([[[self class] mainScreen] isRetina]);
+		IsRetina = ([[[self class] mainScreen] tom_isRetina]);
 	});
 	return IsRetina;
 }
@@ -48,7 +48,7 @@
 #pragma mark -
 #pragma mark Instance Methods
 
-- (BOOL)isRetina
+- (BOOL)tom_isRetina
 {
     return [self respondsToSelector:@selector(scale)] && [self scale] == 2;
 }

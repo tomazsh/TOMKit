@@ -31,12 +31,12 @@
 /**
  Popover controller block that takes popover controller as its sole parameter.
  */
-typedef void (^TOMPopoverControllerBlock)(TOMPopoverController *);
+typedef void (^TOMPopoverControllerBlock)(TOMPopoverController *popoverController);
 
 /**
  Popover controller block that returns `YES` if popover controller should dismiss, otherwise `NO`, and takes popover controller as its sole parameter.
  */
-typedef BOOL (^TOMPopoverControllerShouldDismissBlock)(TOMPopoverController *);
+typedef BOOL (^TOMPopoverControllerShouldDismissBlock)(TOMPopoverController *popoverController);
 
 /**
  `TOMPopoverController` extends `UIPopoverController` with blocks.

@@ -31,17 +31,17 @@
 /**
  Alert view block that takes alrt view as its sole parameter.
  */
-typedef void (^TOMAlertViewBlock)(TOMAlertView *);
+typedef void (^TOMAlertViewBlock)(TOMAlertView *alertView);
 
 /**
  Alert view block that takes alert view and button index as its parameters.
  */
-typedef void (^TOMAlertViewButtonBlock)(TOMAlertView *, NSInteger);
+typedef void (^TOMAlertViewButtonBlock)(TOMAlertView *alertView, NSInteger buttonIndex);
 
 /**
  Alert view block that returns `YES` if alert view should enable first other button, `NO` otherwise, and takes alert view as its sole parameter.
  */
-typedef BOOL (^TOMAlertViewShouldEnableFirstOtherButtonBlock)(TOMAlertView *);
+typedef BOOL (^TOMAlertViewShouldEnableFirstOtherButtonBlock)(TOMAlertView *alertView);
 
 /**
  `TOMAlertView` extends `UIAlertView` with blocks.

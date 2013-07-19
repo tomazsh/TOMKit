@@ -31,12 +31,12 @@
 /**
  Action sheet block that takes action sheet as its sole parameter.
  */
-typedef void (^TOMActionSheetBlock)(TOMActionSheet *);
+typedef void (^TOMActionSheetBlock)(TOMActionSheet *actionSheet);
 
 /**
  Action sheet block that takes action sheet and button index as its parameters.
  */
-typedef void (^TOMActionSheetButtonBlock)(TOMActionSheet *, NSInteger);
+typedef void (^TOMActionSheetButtonBlock)(TOMActionSheet *actionSheet, NSInteger buttonIndex);
 
 /**
  `TOMActionSheet` extends `UIActionSheet` with blocks.

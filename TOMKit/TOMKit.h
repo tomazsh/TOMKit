@@ -26,7 +26,7 @@
 #import "TOMActionSheet.h"
 #import "TOMAlertView.h"
 #import "TOMKitMethods.h"
-#import "TOMKitMetrics.h"
+#import "TOMKitDefines.h"
 #import "TOMPopoverController.h"
 #import "UIAlertView+TOMKit.h"
 #import "UIColor+TOMKit.h"

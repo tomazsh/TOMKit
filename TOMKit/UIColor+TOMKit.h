@@ -25,7 +25,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "TOMKitMetrics.h"
+#import "TOMKitDefines.h"
 
 /**
  The `UIColor(TOMKit)` protocol extends `UIColor`.

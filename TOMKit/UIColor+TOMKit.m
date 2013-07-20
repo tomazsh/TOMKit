@@ -35,9 +35,22 @@
     return [self colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
 }
 
-+ (UIColor *)tom_tableViewDetailLabelColor
++ (UIColor *)tom_colorWithRGBAColor:(struct TOMRGBAColor)color
 {
-    return [self tom_colorWithIntRed:56 green:84 blue:135 alpha:1.0f];
+    return [UIColor colorWithRed:color.red/255.0f green:color.green/255.0f blue:color.blue/255.0f alpha:color.alpha];
+}
+
++ (UIColor *)tom_colorWithHSBAColor:(struct TOMHSBAColor)color
+{
+    return [UIColor colorWithHue:color.hue/360.0f saturation:color.saturation brightness:color.brightness alpha:color.alpha];
+}
+
++ (UIColor *)tom_colorWithHEXColor:(TOMHEXColor)color
+{
+    CGFloat red = ((CGFloat)((color & 0xFF0000) >> 16))/255.0f;
+    CGFloat green = ((CGFloat)((color & 0xFF00) >> 8))/255.0f;
+    CGFloat blue = ((CGFloat)(color & 0xFF))/255.0f;
+    return [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
 }
 
 @end

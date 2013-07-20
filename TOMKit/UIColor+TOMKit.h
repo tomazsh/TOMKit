@@ -25,6 +25,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TOMKitMetrics.h"
 
 /**
  The `UIColor(TOMKit)` protocol extends `UIColor`.
@@ -32,32 +33,34 @@
 @interface UIColor (TOMKit)
 
 /// -----------------------------------------------------
-/// @name Creating a UIColor Object from Component Values
+/// @name Creating a UIColor Object from Color Structures
 /// -----------------------------------------------------
 
 /**
- Creates and returns a color object using the specified opacity and RGB component integer values.
+ Creates and returns a color object using the `TOMRGBAColor` structure.
  
- @param red The red component of the color object, specified as a value from 0 to 255.
- @param green The green component of the color object, specified as a value from 0 to 255.
- @param blue The blue component of the color object, specified as a value from 0 to 255.
-
- @return An `UIColor` value.
+ @param color The `TOMRGBAColor` structure to create a color from.
+ 
+ @return An `UIColor` object.
  */
-+ (UIColor *)tom_colorWithIntRed:(NSUInteger)red
-                           green:(NSUInteger)green
-                            blue:(NSUInteger)blue
-                           alpha:(CGFloat)alpha;
-
-/// -------------------
-/// @name System Colors
-/// -------------------
++ (UIColor *)tom_colorWithRGBAColor:(struct TOMRGBAColor)color;
 
 /**
- Returns the system color used for displaying text in table view cells labels for detail text.
+ Creates and returns a color object using the `TOMHSBAColor` structure.
  
- @return An `UIColor` value.
+ @param color The `TOMHSBAColor` structure to create a color from.
+ 
+ @return An `UIColor` object.
  */
-+ (UIColor *)tom_tableViewDetailLabelColor;
++ (UIColor *)tom_colorWithHSBAColor:(struct TOMHSBAColor)color;
+
+/**
+ Creates and returns a color object using the `TOMHEXColor` value.
+ 
+ @param color The `TOMHEXColor` value to create a color from.
+ 
+ @return An `UIColor` object.
+ */
++ (UIColor *)tom_colorWithHEXColor:(TOMHEXColor)color;
 
 @end

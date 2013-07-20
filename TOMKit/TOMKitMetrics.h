@@ -34,6 +34,27 @@
 #define UIViewAutoresizingFlexibleDimensions (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)
 #endif
 
+#ifndef TOMRGBAColor
+struct TOMRGBAColor {
+    CGFloat red; // Valid value is between 0.0f and 255.0f.
+    CGFloat green; // Valid value is between 0.0f and 255.0f.
+    CGFloat blue; // Valid value is between 0.0f and 255.0f.
+    CGFloat alpha; // Valid value is between 0.0f and 1.0f.
+};
+#endif
+
+#ifndef TOMHSBAColor
+struct TOMHSBAColor {
+    CGFloat hue; // Valid values are from 0.0f to 360.0f.
+    CGFloat saturation; // Valid value is between 0.0f and 1.0f.
+    CGFloat brightness; // Valid value is between 0.0f and 1.0f.
+    CGFloat alpha;
+};
+#endif
+
+#ifndef TOMHEXColor
+typedef NSUInteger TOMHEXColor;
+#endif
 
 #define TOM_PHONE UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone
 #define TOM_PAD   UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad

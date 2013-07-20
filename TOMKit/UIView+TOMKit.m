@@ -33,7 +33,7 @@
 
 - (void)tom_imageByRenderingLayerCompletion:(void (^)(UIImage *))completion
 {
-    NSAssert(completion, @"Completion block is missing.");
+    NSParameterAssert(completion);
     
     __block UIImage *image = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

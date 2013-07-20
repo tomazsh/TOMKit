@@ -46,7 +46,7 @@
 
 + (UIImage *)tom_animatedImageWithAnimatedGIFImageSource:(CGImageSourceRef)source duration:(NSTimeInterval)duration
 {
-    if (!source) return nil;
+    NSParameterAssert(source);
     
     __block UIImage *image;
         size_t count = CGImageSourceGetCount(source);
@@ -66,6 +66,8 @@
 
 + (NSTimeInterval)tom_durationForGIFData:(NSData *)data
 {
+    NSParameterAssert(data);
+    
     __block CGFloat duration = 0;
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         char graphicControlExtensionStartBytes[] = {0x21, 0xF9, 0x04};
@@ -105,9 +107,7 @@
 
 - (void)tom_imageWithSize:(CGSize)size cornerRadius:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor completed:(void (^)(UIImage *image))completed
 {
-    if (!completed) {
-        return;
-    }
+    NSParameterAssert(completed);
     
     __block UIImage *image = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -173,6 +173,8 @@
 
 + (NSUInteger)tom_numberOfImagesInData:(NSData *)data
 {
+    NSParameterAssert(data);
+    
     __block NSUInteger count = 0;
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
@@ -184,6 +186,8 @@
 
 + (UIImage *)tom_animatedImageWithGIFData:(NSData *)data
 {
+    NSParameterAssert(data);
+    
     NSTimeInterval duration = [self tom_durationForGIFData:data];
     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
     UIImage *image = [UIImage tom_animatedImageWithAnimatedGIFImageSource:source duration:duration];

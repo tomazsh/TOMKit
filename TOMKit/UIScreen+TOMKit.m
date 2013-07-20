@@ -50,7 +50,7 @@
 
 - (BOOL)tom_isRetina
 {
-    return [self respondsToSelector:@selector(scale)] && [self scale] == 2;
+    return [self respondsToSelector:@selector(scale)] && [self scale] == 2.0f;
 }
 
 @end

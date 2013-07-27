@@ -42,9 +42,11 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/colorWithIntRed:green:blue:alpha:">&nbsp;&nbsp;&nbsp;&nbsp;+ colorWithIntRed:green:blue:alpha:</option>
+	<option value="//api/name/tom_colorWithHEXColor:">&nbsp;&nbsp;&nbsp;&nbsp;+ tom_colorWithHEXColor:</option>
 	
-	<option value="//api/name/tableViewDetailLabelColor">&nbsp;&nbsp;&nbsp;&nbsp;+ tableViewDetailLabelColor</option>
+	<option value="//api/name/tom_colorWithHSBAColor:">&nbsp;&nbsp;&nbsp;&nbsp;+ tom_colorWithHSBAColor:</option>
+	
+	<option value="//api/name/tom_colorWithRGBAColor:">&nbsp;&nbsp;&nbsp;&nbsp;+ tom_colorWithRGBAColor:</option>
 	
 	
 	
@@ -64,9 +66,7 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Creating a UIColor Object from Component Values">Creating a UIColor Object from Component Values</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_System Colors">System Colors</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Creating a UIColor Object from Color Structures">Creating a UIColor Object from Color Structures</a></span></li>
 	
 </ul></li>
 
@@ -78,9 +78,11 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/colorWithIntRed:green:blue:alpha:">colorWithIntRed:green:blue:alpha:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tom_colorWithHEXColor:">tom_colorWithHEXColor:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableViewDetailLabelColor">tableViewDetailLabelColor</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tom_colorWithHSBAColor:">tom_colorWithHSBAColor:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tom_colorWithRGBAColor:">tom_colorWithRGBAColor:</a></span></li>
 	
 </ul></li>
 
@@ -130,29 +132,28 @@
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="Creating a UIColor Object from Component Values" name="task_Creating a UIColor Object from Component Values"></a>
-						<h3 class="subsubtitle task-title">Creating a UIColor Object from Component Values</h3>
-
+						<a title="Creating a UIColor Object from Color Structures" name="task_Creating a UIColor Object from Color Structures"></a>
+						
+<h3 class="subsubtitle task-title">Creating a UIColor Object from Color Structures</h3>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/colorWithIntRed:green:blue:alpha:">+&nbsp;colorWithIntRed:green:blue:alpha:</a></code>
-		<span class="tooltip"><p>Creates and returns a color object using the specified opacity and RGB component integer values.</p></span>
+		<code><a href="#//api/name/tom_colorWithRGBAColor:">+&nbsp;tom_colorWithRGBAColor:</a></code>
+		<span class="tooltip"><p>Creates and returns a color object using the <code>TOMRGBAColor</code> structure.</p></span>
 	</span>
 	
 	
-</li>
-						</ul>
-						
-						
-						<a title="System Colors" name="task_System Colors"></a>
-						<h3 class="subsubtitle task-title">System Colors</h3>
-
-						<ul class="task-list">
-							<li>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/tableViewDetailLabelColor">+&nbsp;tableViewDetailLabelColor</a></code>
-		<span class="tooltip"><p>Returns the system color used for displaying text in table view cells labels for detail text.</p></span>
+		<code><a href="#//api/name/tom_colorWithHSBAColor:">+&nbsp;tom_colorWithHSBAColor:</a></code>
+		<span class="tooltip"><p>Creates and returns a color object using the <code>TOMHSBAColor</code> structure.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tom_colorWithHEXColor:">+&nbsp;tom_colorWithHEXColor:</a></code>
+		<span class="tooltip"><p>Creates and returns a color object using the <code>TOMHEXColor</code> value.</p></span>
 	</span>
 	
 	
@@ -172,18 +173,18 @@
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/colorWithIntRed:green:blue:alpha:" title="colorWithIntRed:green:blue:alpha:"></a>
-	<h3 class="subsubtitle method-title">colorWithIntRed:green:blue:alpha:</h3>
+	<a name="//api/name/tom_colorWithHEXColor:" title="tom_colorWithHEXColor:"></a>
+	<h3 class="subsubtitle method-title">tom_colorWithHEXColor:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Creates and returns a color object using the specified opacity and RGB component integer values.</p>
+		<p>Creates and returns a color object using the <code>TOMHEXColor</code> value.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (UIColor *)colorWithIntRed:(NSUInteger)<em>red</em> green:(NSUInteger)<em>green</em> blue:(NSUInteger)<em>blue</em> alpha:(CGFloat)<em>alpha</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (UIColor *)tom_colorWithHEXColor:(TOMHEXColor)<em>color</em></code></div>
 
     
 	
@@ -191,18 +192,8 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>red</em></dt>
-			<dd><p>The red component of the color object, specified as a value from 0 to 255.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>green</em></dt>
-			<dd><p>The green component of the color object, specified as a value from 0 to 255.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>blue</em></dt>
-			<dd><p>The blue component of the color object, specified as a value from 0 to 255.</p></dd>
+			<dt><em>color</em></dt>
+			<dd><p>The <code>TOMHEXColor</code> value to create a color from.</p></dd>
 		</dl>
 		
 	</div>
@@ -211,7 +202,7 @@
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>An <code>UIColor</code> value.</p>
+		<p>An <code>UIColor</code> object.</p>
 	</div>
 	
 	
@@ -233,26 +224,87 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/tableViewDetailLabelColor" title="tableViewDetailLabelColor"></a>
-	<h3 class="subsubtitle method-title">tableViewDetailLabelColor</h3>
+	<a name="//api/name/tom_colorWithHSBAColor:" title="tom_colorWithHSBAColor:"></a>
+	<h3 class="subsubtitle method-title">tom_colorWithHSBAColor:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the system color used for displaying text in table view cells labels for detail text.</p>
+		<p>Creates and returns a color object using the <code>TOMHSBAColor</code> structure.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (UIColor *)tableViewDetailLabelColor</code></div>
+	<div class="method-subsection method-declaration"><code>+ (UIColor *)tom_colorWithHSBAColor:(struct TOMHSBAColor)<em>color</em></code></div>
 
     
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>The <code>TOMHSBAColor</code> structure to create a color from.</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>An <code>UIColor</code> value.</p>
+		<p>An <code>UIColor</code> object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">UIColor+TOMKit.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tom_colorWithRGBAColor:" title="tom_colorWithRGBAColor:"></a>
+	<h3 class="subsubtitle method-title">tom_colorWithRGBAColor:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns a color object using the <code>TOMRGBAColor</code> structure.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (UIColor *)tom_colorWithRGBAColor:(struct TOMRGBAColor)<em>color</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>The <code>TOMRGBAColor</code> structure to create a color from.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An <code>UIColor</code> object.</p>
 	</div>
 	
 	
@@ -288,7 +340,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Tomaz Nedeljko. All rights reserved. (Last updated: 2013-01-14)</span><br />
+						<p><span class="copyright">&copy; 2013 Tomaz Nedeljko. All rights reserved. (Last updated: 2013-07-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

@@ -49,17 +49,15 @@
     NSParameterAssert(source);
     
     __block UIImage *image;
-        size_t count = CGImageSourceGetCount(source);
-        NSMutableArray *images = [NSMutableArray arrayWithCapacity:count];
-        for (size_t i = 0; i < count; ++i) {
-            CGImageRef cgImage = CGImageSourceCreateImageAtIndex(source, i, NULL);
-            if (!cgImage)
-                return nil;
-            [images addObject:[UIImage imageWithCGImage:cgImage]];
-            CGImageRelease(cgImage);
-        }
-        image = [UIImage animatedImageWithImages:images duration:duration];
-
+    size_t count = CGImageSourceGetCount(source);
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:count];
+    for (size_t i = 0; i < count; ++i) {
+        CGImageRef cgImage = CGImageSourceCreateImageAtIndex(source, i, NULL);
+        if (!cgImage) return nil;
+        [images addObject:[UIImage imageWithCGImage:cgImage]];
+        CGImageRelease(cgImage);
+    }
+    image = [UIImage animatedImageWithImages:images duration:duration];
         
     return image;
 }

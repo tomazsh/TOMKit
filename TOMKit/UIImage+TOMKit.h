@@ -55,7 +55,7 @@
  @param cornerRadius Corner radius.
  @param borderWidth Border width.
  @param borderColor Border color. May be `nil`.
- @param completed A block to be executed when an image is created. This block takes the newly created image as its sole parameter.
+ @param completed A block to be executed when an image is created. This block takes the newly created image as its sole parameter. May not be `nil`.
  
  @return A `UIImage` object.
  */
@@ -99,7 +99,7 @@
 /**
  Checks the number of source images in the supplied data object. You can use this method to test whether image data can be converted to animated image.
  
- @param data Data to check in.
+ @param data Data to check in. May not be `nil`.
  
  @return Number of source images.
  */
@@ -108,7 +108,7 @@
 /**
  Creates an animated image from supplied data, ie. GIF image.
  
- @param data Data to use.
+ @param data Data to use for the conversion. May not be `nil`.
  
  @return A `UIImage` object.
  */

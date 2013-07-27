@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+/**
+ The `UIView(TOMKit)` protocol extends `UIView`.
+ */
 @interface UIView (TOMKit)
 
 #ifdef QUARTZCORE_H
@@ -24,6 +27,14 @@
  */
 - (UIImage *)tom_imageByRenderingLayer;
 
+/**
+ Renders an image from a frame in the current layer bounds with an opaque or transparent background on the main queue.
+ 
+ @param frame Frame to render.
+ @param opaque `YES` is the layer should be rendered with opaque background; otherwise `NO`.
+ 
+ @return A `UIImage` instance.
+ */
 - (UIImage *)tom_imageByRenderingLayerFrame:(CGRect)frame
                                      opaque:(BOOL)opaque;
 

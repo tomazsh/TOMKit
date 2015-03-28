@@ -3,7 +3,7 @@
 //  Scraps
 //
 //  Created by Tomaz Nedeljko on 14/1/13.
-//  Copyright (c) 2013 Tomaz Nedeljko. All rights reserved.
+//  Copyright (c) 2015 Tomaz Nedeljko. All rights reserved.
 //
 
 #import "UIView+TOMKit.h"

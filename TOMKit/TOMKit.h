@@ -2,7 +2,7 @@
 //  TOMKit.h
 //  TOMKit
 //
-//  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
+//  Copyright (c) 2015 Tomaz Nedeljko (http://nedeljko.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +23,10 @@
 //  THE SOFTWARE.
 //
 
-#import "TOMActionSheet.h"
-#import "TOMAlertView.h"
-#import "TOMKitMethods.h"
-#import "TOMKitDefines.h"
-#import "TOMPopoverController.h"
-#import "UIAlertView+TOMKit.h"
-#import "UIColor+TOMKit.h"
-#import "UIImage+TOMKit.h"
-#import "UIScreen+TOMKit.h"
-#import "UIView+TOMKit.h"
+#import <TOMKit/TOMKitMethods.h>
+#import <TOMKit/TOMKitDefines.h>
+#import <TOMKit/TOMTextView.h>
+#import <TOMKit/UIColor+TOMKit.h>
+#import <TOMKit/UIImage+TOMKit.h>
+#import <TOMKit/UIScreen+TOMKit.h>
+#import <TOMKit/UIView+TOMKit.h>

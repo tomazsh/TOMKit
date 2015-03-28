@@ -2,7 +2,7 @@
 //  TOMKitMethods.m
 //  TOMKit
 //
-//  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
+//  Copyright (c) 2015 Tomaz Nedeljko (http://nedeljko.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -33,8 +33,7 @@ CGRect CGRectForCenteredRectInRect(CGRect rectToCenter, CGRect containerRect) {
     return rect;
 }
 
-CGRect CGRectByAddingPoint(CGRect rect, CGPoint point)
-{
+CGRect CGRectByAddingPoint(CGRect rect, CGPoint point) {
     CGRect newRect = rect;
     newRect.origin.x += point.x;
     newRect.origin.y += point.y;

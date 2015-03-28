@@ -1,8 +1,8 @@
 //
-//  UIAlertView+TOMKit.m
+//  TOMTextView.h
 //  TOMKit
 //
-//  Copyright (c) 2013 Tomaz Nedeljko (http://nedeljko.com)
+//  Copyright (c) 2015 Tomaz Nedeljko (http://nedeljko.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +23,30 @@
 //  THE SOFTWARE.
 //
 
-#import "UIAlertView+TOMKit.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@implementation UIAlertView (TOMKit)
+@class TOMTextView;
 
-#pragma mark -
-#pragma mark Class Methods
+@protocol TOMTextViewDelegate <UITextViewDelegate>
 
-+ (void)tom_showAlertWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle
-{
-    UIAlertView *alertView = [[self alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
-    [alertView show];
-}
+@optional
 
-+ (void)tom_showError:(NSError *)error withTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle
-{
-    [self tom_showAlertWithTitle:title message:[error localizedDescription] cancelButtonTitle:cancelButtonTitle];
-}
+- (CGSize)minimumAutogrowSizeForTextView:(TOMTextView *)textView;
+- (CGSize)maximumAutogrowSizeForTextView:(TOMTextView *)textView;
+- (void)textView:(TOMTextView *)textView willAutogrowToSize:(CGSize)size;
+- (void)textView:(TOMTextView *)textView didAutogrowToSize:(CGSize)size;
+
+@end
+
+@interface TOMTextView : UITextView
+
+@property (weak, nonatomic) IBOutlet id<TOMTextViewDelegate> delegate;
+@property (copy, nonatomic) NSString *placeholder;
+@property (strong, nonatomic) UIFont *placeholderFont;
+@property (strong, nonatomic) UIColor *placeholderColor;
+@property (nonatomic) BOOL autogrow;
+
+- (void)resizeToFit;
 
 @end
